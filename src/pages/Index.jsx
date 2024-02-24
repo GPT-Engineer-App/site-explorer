@@ -60,18 +60,18 @@ const Index = () => {
   return (
     <Container maxW="container.md" py={10}>
       <Heading as="h1" size="xl" mb={6} textAlign="center">
-        Website Change Explorer
+        Website Monitoring Tool
       </Heading>
 
       <Box p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
         <Stack spacing={4}>
-          <Text>Enter the URL of the website you want to track:</Text>
+          <Text>Enter the URL of the website you want to monitor:</Text>
           <Input placeholder="https://example.com" value={url} onChange={handleUrlChange} />
           <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={handleExploreChanges} mr={2}>
-            Explore Changes
+            Monitor Changes
           </Button>
-          <Button leftIcon={<FaSearch />} colorScheme="orange" onClick={handleExploreChanges}>
-            Track & Replicate Site
+          <Button leftIcon={<FaSearch />} colorScheme="orange">
+            Start Monitoring
           </Button>
         </Stack>
       </Box>
