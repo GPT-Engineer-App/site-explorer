@@ -3,12 +3,13 @@ import { Box, Button, Container, Heading, Input, Stack, Text, useToast } from "@
 import { FaSearch } from "react-icons/fa";
 
 const fetchSiteChanges = (url) => {
-  // Mock function to simulate a backend request
+  // Mock function to simulate a backend request and the saving of website's code
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // This is where the actual network request logic would go
       // For demonstration purposes, we resolve the promise with a mock response
-      resolve(`Mock changes for ${url} are ready to view.`);
+      // indicating that code changes have been saved (simulation)
+      resolve(`Mock code changes for ${url} have been saved and can be viewed.`);
     }, 2000);
   });
 };
