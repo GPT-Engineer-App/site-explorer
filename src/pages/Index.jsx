@@ -36,12 +36,12 @@ const Index = () => {
 
     // Simulate fetching site changes from a backend
     fetchSiteChanges(url)
-      .then((changes) => {
+      .then((message) => {
         toast({
-          title: "Changes Found",
-          description: changes,
-          status: "success",
-          duration: 3000,
+          title: "Tracking Initiated",
+          description: `The site will be tracked for the next 24 hours. Changes will be replicated and made available for download.`,
+          status: "info",
+          duration: 5000,
           isClosable: true,
         });
       })
@@ -69,8 +69,8 @@ const Index = () => {
           <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={handleExploreChanges} mr={2}>
             Explore Changes
           </Button>
-          <Button leftIcon={<FaSearch />} colorScheme="teal" onClick={handleExploreChanges}>
-            Simulate Tracking
+          <Button leftIcon={<FaSearch />} colorScheme="orange" onClick={handleExploreChanges}>
+            Track & Replicate Site
           </Button>
         </Stack>
       </Box>
