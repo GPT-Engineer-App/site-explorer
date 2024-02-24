@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import { Box, Button, Container, Heading, Input, Stack, Text, useToast } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 
+const fetchSiteChanges = (url) => {
+  // Mock function to simulate a backend request
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // This is where the actual network request logic would go
+      // For demonstration purposes, we resolve the promise with a mock response
+      resolve(`Mock changes for ${url} are ready to view.`);
+    }, 2000);
+  });
+};
+
 const Index = () => {
   const [url, setUrl] = useState("");
   const toast = useToast();
@@ -22,15 +33,26 @@ const Index = () => {
       return;
     }
 
-    // TODO: Implement the logic to explore and track changes of the website
-    // For now, we just display a toast message for demonstration
-    toast({
-      title: "Success",
-      description: `Changes for ${url} will be tracked.`,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+    // Simulate fetching site changes from a backend
+    fetchSiteChanges(url)
+      .then((changes) => {
+        toast({
+          title: "Changes Found",
+          description: changes,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: "Error",
+          description: error.message,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   };
 
   return (
