@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { Box, Button, Container, Heading, Input, Stack, Text, useToast } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 
-const fetchSiteChanges = (url) => {
-  // Mock function to simulate a backend request and the saving of website's code
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // This is where the actual network request logic would go
-      // For demonstration purposes, we resolve the promise with a mock response
-      // indicating that code changes have been saved (simulation)
-      resolve(`Mock tracking initiated for ${url}. Changes will be monitored and reported.`);
-    }, 2000);
-  });
+const fetchSiteChanges = async (url) => {
+  try {
+    const response = await fetch(url); // Fetch API used here
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json(); // Assuming the server returns JSON data
+    return `Tracking initiated for ${url}. Changes will be monitored and reported.`;
+  } catch (error) {
+    throw new Error(`Network request failed: ${error.message}`);
+  }
 };
 
 const Index = () => {
