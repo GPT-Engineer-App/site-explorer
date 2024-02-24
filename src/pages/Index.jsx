@@ -9,7 +9,7 @@ const fetchSiteChanges = (url) => {
       // This is where the actual network request logic would go
       // For demonstration purposes, we resolve the promise with a mock response
       // indicating that code changes have been saved (simulation)
-      resolve(`Mock code changes for ${url} have been saved and can be viewed.`);
+      resolve(`Mock tracking initiated for ${url}. Changes will be monitored and reported.`);
     }, 2000);
   });
 };
@@ -66,8 +66,11 @@ const Index = () => {
         <Stack spacing={4}>
           <Text>Enter the URL of the website you want to track:</Text>
           <Input placeholder="https://example.com" value={url} onChange={handleUrlChange} />
-          <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={handleExploreChanges}>
+          <Button leftIcon={<FaSearch />} colorScheme="blue" onClick={handleExploreChanges} mr={2}>
             Explore Changes
+          </Button>
+          <Button leftIcon={<FaSearch />} colorScheme="teal" onClick={handleExploreChanges}>
+            Simulate Tracking
           </Button>
         </Stack>
       </Box>
